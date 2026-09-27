@@ -1,0 +1,13 @@
+name = "paleta-proxy"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+
+[vars]
+# Orígenes que pueden usar el proxy, separados por comas. Pon aquí tu GitHub Pages,
+# p. ej. "https://usuario.github.io". "*" permite cualquiera.
+ALLOWED_ORIGINS = "*"
+# Tiempo máximo de espera a la web de origen (ms) y tamaño máximo de respuesta (bytes).
+TIMEOUT_MS = "10000"
+MAX_BYTES = "3145728"
+# Segundos que Cloudflare cachea las respuestas de origen.
+CACHE_TTL = "3600"
