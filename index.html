@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Paleta Analítica</title>
+  <meta name="description" content="Genera paletas de colores para la paleta personalizada de proyecto de Adobe Analytics Workspace a partir de los colores de una marca.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='16' width='6' height='13' rx='1.5' fill='%231473E6'/%3E%3Crect x='13' y='9' width='6' height='20' rx='1.5' fill='%23E4572E'/%3E%3Crect x='23' y='3' width='6' height='26' rx='1.5' fill='%2317A589'/%3E%3C/svg%3E">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <h1>Paleta Analítica</h1>
+      <p class="lead">Colores de marca → paleta para gráficos de Adobe Analytics Workspace.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- 1. Fuente de los colores -->
+    <section class="sources" aria-label="Origen de los colores">
+      <div class="card">
+        <h2><span class="step">1</span> Desde una imagen</h2>
+        <label id="dropzone" class="dropzone" tabindex="0">
+          <input id="file-input" type="file" accept="image/*" hidden>
+          <img id="image-preview" alt="" hidden>
+          <span class="dropzone-text">
+            <strong>Arrastra un pantallazo o el logo</strong>
+            <span>o haz clic para elegir un archivo · también puedes pegarlo con Ctrl+V</span>
+          </span>
+        </label>
+        <p id="image-status" class="status" role="status"></p>
+      </div>
+
+      <div class="card">
+        <h2><span class="step">1</span> Desde una URL</h2>
+        <form id="url-form" class="url-form">
+          <label for="url-input" class="sr-only">URL de la web</label>
+          <input id="url-input" type="text" inputmode="url" placeholder="https://www.ejemplo.com" autocomplete="url" required>
+          <button type="submit" class="btn primary" id="url-button">Extraer</button>
+        </form>
+        <p id="url-status" class="status" role="status"></p>
+        <div id="url-blocked" class="notice warn" hidden>
+          <p id="url-blocked-text"></p>
+          <p>Prueba a hacer un pantallazo de la web y subirlo como imagen.</p>
+          <button type="button" class="btn" id="goto-image">Subir una imagen</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Colores detectados -->
+    <section id="detected-section" class="card">
+      <div class="section-head">
+        <h2><span class="step">2</span> Colores detectados</h2>
+        <p class="hint">Marca hasta <span id="max-brand"></span> como colores de marca. Van primero en la paleta.</p>
+      </div>
+      <ul id="detected-list" class="chips"></ul>
+      <p id="detected-empty" class="empty">Todavía no hay colores. Usa una imagen, una URL o la galería, o añade uno a mano.</p>
+      <form id="manual-brand" class="inline-form">
+        <label for="manual-color">Añadir un color a mano</label>
+        <input type="color" id="manual-color" value="#1473e6">
+        <button class="btn" type="submit">Añadir</button>
+      </form>
+    </section>
+
+    <!-- 3. Paleta -->
+    <section id="palette-section" class="card">
+      <div class="section-head">
+        <h2><span class="step">3</span> Paleta <span id="palette-title" class="muted"></span></h2>
+        <div class="toolbar">
+          <label>Colores
+            <select id="size-select"></select>
+          </label>
+          <label>Estilo
+            <select id="mode-select">
+              <option value="distinta">Máxima distinción</option>
+              <option value="armonica">Armónica con la marca</option>
+            </select>
+          </label>
+          <button type="button" class="btn" id="regen-button" title="Vuelve a generar a partir de los colores de marca">Regenerar</button>
+          <button type="button" class="btn" id="fill-button" title="Rellena hasta el número de colores sin tocar los actuales">Completar</button>
+        </div>
+      </div>
+      <ol id="palette-list" class="palette-list"></ol>
+      <p id="palette-empty" class="empty">Sube una imagen, extrae una URL o elige una marca de la galería.</p>
+      <div id="palette-checks" class="checks" aria-live="polite"></div>
+    </section>
+
+    <!-- 4. Vista previa -->
+    <section id="preview-section" class="card">
+      <h2><span class="step">4</span> Vista previa</h2>
+      <div class="charts">
+        <figure class="chart-card"><figcaption>Visitas por canal</figcaption><div id="chart-bar" class="chart"></div></figure>
+        <figure class="chart-card"><figcaption>Tendencia mensual</figcaption><div id="chart-line" class="chart"></div></figure>
+        <figure class="chart-card"><figcaption>Reparto de visitas</figcaption><div id="chart-donut" class="chart"></div></figure>
+      </div>
+    </section>
+
+    <!-- 5. Salida -->
+    <section id="output-section" class="card">
+      <h2><span class="step">5</span> Copiar en Workspace</h2>
+      <div class="output">
+        <code id="output-text" class="output-text"></code>
+        <button type="button" class="btn primary" id="copy-button">Copiar</button>
+      </div>
+      <p class="hint">En Workspace: Proyecto › Paleta de colores › Personalizada, y pega la lista. <span id="format-hint"></span></p>
+    </section>
+
+    <!-- Galería -->
+    <section id="gallery-section" class="gallery-section">
+      <div class="section-head">
+        <h2>Galería de marcas</h2>
+        <label class="search"><span class="sr-only">Buscar marca</span>
+          <input id="gallery-search" type="search" placeholder="Buscar marca…">
+        </label>
+      </div>
+      <p class="hint">Paletas generadas a partir de los colores de cada marca. Las marcadas como <span class="badge">pendiente</span> no se han verificado todavía contra la web o la guía de marca.</p>
+      <ul id="gallery" class="gallery"></ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Los nombres de marca se usan solo como referencia; no hay relación con las marcas citadas.</p>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" hidden></div>
+</body>
+</html>

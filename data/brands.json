@@ -1,0 +1,369 @@
+{
+  "_info": {
+    "descripcion": "Marcas de la galería. 'colors' son los colores de marca (máx. 3, en orden); la paleta de 8 se genera al cargar. Se puede fijar una paleta con el campo opcional 'palette'.",
+    "status": "'pendiente' = sin verificar contra la web o la guía de marca; 'verificado' = revisado a mano. tools/extract-brands.mjs no sobrescribe los colores de las marcas verificadas.",
+    "source.type": "'extractor' (tools/extract-brands.mjs sobre la web), 'guia-oficial' (guía o portal de marca), 'agregador' (webs de terceros que recopilan colores de marca)."
+  },
+  "brands": [
+    {
+      "id": "kfc",
+      "name": "KFC",
+      "url": "https://www.kfc.es",
+      "colors": [
+        "#E4002B"
+      ],
+      "status": "pendiente",
+      "source": {
+        "type": "guia-oficial",
+        "refs": [
+          "https://global.kfc.com/media-assets",
+          "https://brandcolor.dev/brands/kfc"
+        ],
+        "date": "2026-09-27"
+      },
+      "notes": "Rojo KFC citado desde el asset library oficial; no verificado contra la web."
+    },
+    {
+      "id": "mediamarkt",
+      "name": "MediaMarkt",
+      "url": "https://www.mediamarkt.es",
+      "colors": [
+        "#DF0000"
+      ],
+      "status": "pendiente",
+      "source": {
+        "type": "agregador",
+        "refs": [
+          "https://logotyp.us/logo/media-markt/",
+          "https://brandfetch.com/mediamarkt.pl"
+        ],
+        "date": "2026-09-27"
+      },
+      "alternatives": [
+        "#D9222A"
+      ],
+      "notes": "Fuentes discrepan entre #DF0000 y #D9222A."
+    },
+    {
+      "id": "telefonica",
+      "name": "Telefónica",
+      "url": "https://www.telefonica.com",
+      "colors": [
+        "#0066FF"
+      ],
+      "status": "pendiente",
+      "source": {
+        "type": "agregador",
+        "refs": [
+          "https://colorify.rocks/brands/telefonica",
+          "https://www.brandcolorcode.com/telefonica"
+        ],
+        "date": "2026-09-27"
+      }
+    },
+    {
+      "id": "burger-king",
+      "name": "Burger King",
+      "url": "https://www.burgerking.es",
+      "colors": [
+        "#D62300",
+        "#FF8732"
+      ],
+      "status": "pendiente",
+      "source": {
+        "type": "agregador",
+        "refs": [
+          "https://brandpalettes.com/burger-king-color-codes/",
+          "https://mobbin.com/colors/brand/burger-king"
+        ],
+        "date": "2026-09-27"
+      },
+      "alternatives": [
+        "#F5EBDC"
+      ],
+      "notes": "Paleta del rediseño de 2021 (rojo y naranja). Falta el marrón de marca."
+    },
+    {
+      "id": "mcdonalds",
+      "name": "McDonald's",
+      "url": "https://www.mcdonalds.es",
+      "colors": [
+        "#FFBC0D",
+        "#DB0007"
+      ],
+      "status": "pendiente",
+      "source": {
+        "type": "agregador",
+        "refs": [
+          "https://mobbin.com/colors/brand/mcdonalds",
+          "https://brandpalettes.com/mcdonalds-color-codes/"
+        ],
+        "date": "2026-09-27"
+      },
+      "alternatives": [
+        "#FFC72C",
+        "#DA291C"
+      ],
+      "notes": "Dos juegos de valores según la fuente (app vs. Pantone)."
+    },
+    {
+      "id": "coca-cola",
+      "name": "Coca-Cola",
+      "url": "https://www.coca-cola.com/es/es",
+      "colors": [
+        "#F40009"
+      ],
+      "status": "pendiente",
+      "source": {
+        "type": "agregador",
+        "refs": [
+          "https://coloracci.ai/blog/coca-cola-brand-colors-psychology",
+          "https://brandpalettes.com/coca-cola-color-codes/"
+        ],
+        "date": "2026-09-27"
+      },
+      "alternatives": [
+        "#E61D2B",
+        "#F40000"
+      ],
+      "notes": "El rojo varía entre fuentes."
+    },
+    {
+      "id": "santander",
+      "name": "Santander",
+      "url": "https://www.bancosantander.es",
+      "colors": [
+        "#EC0000"
+      ],
+      "status": "pendiente",
+      "source": {
+        "type": "guia-oficial",
+        "refs": [
+          "https://www.santander.com/content/dam/santander-com/es/documentos/marca-santander/Guia_Marca_060520_en.pdf"
+        ],
+        "date": "2026-09-27"
+      },
+      "alternatives": [
+        "#DEEDF2"
+      ],
+      "notes": "Guía de marca oficial (PMS 485 C). Pendiente de comprobar en el PDF."
+    },
+    {
+      "id": "bbva",
+      "name": "BBVA",
+      "url": "https://www.bbva.es",
+      "colors": [
+        "#004481"
+      ],
+      "status": "pendiente",
+      "source": {
+        "type": "agregador",
+        "refs": [
+          "https://brandfetch.com/bbva.fr",
+          "https://www.schemecolor.com/bbva-logo-colors.php"
+        ],
+        "date": "2026-09-27"
+      },
+      "notes": "Solo el azul principal; faltan los secundarios."
+    },
+    {
+      "id": "caixabank",
+      "name": "CaixaBank",
+      "url": "https://www.caixabank.es",
+      "colors": [
+        "#007EAE"
+      ],
+      "status": "pendiente",
+      "source": {
+        "type": "agregador",
+        "refs": [
+          "https://logotyp.us/logo/caixabank/",
+          "https://brandfetch.com/caixabank.com"
+        ],
+        "date": "2026-09-27"
+      },
+      "notes": "Falta el amarillo y el rojo/naranja de los círculos del logotipo."
+    },
+    {
+      "id": "iberdrola",
+      "name": "Iberdrola",
+      "url": "https://www.iberdrola.es",
+      "colors": [
+        "#00A443",
+        "#00402A"
+      ],
+      "status": "pendiente",
+      "source": {
+        "type": "agregador",
+        "refs": [
+          "https://www.iberdrola.com/about-us/our-company/our-brand",
+          "https://www.schemecolor.com/iberdrola-logo-colors.php"
+        ],
+        "date": "2026-09-27"
+      },
+      "notes": "La marca usa también azul y naranja; sin hex fiable todavía."
+    },
+    {
+      "id": "repsol",
+      "name": "Repsol",
+      "url": "https://www.repsol.es",
+      "colors": [
+        "#FF8200",
+        "#E4002B",
+        "#041E42"
+      ],
+      "status": "pendiente",
+      "source": {
+        "type": "agregador",
+        "refs": [
+          "https://logotyp.us/logo/repsol/",
+          "https://www.schemecolor.com/repsol-logo-colors.php"
+        ],
+        "date": "2026-09-27"
+      },
+      "alternatives": [
+        "#F6A60E",
+        "#E3192F"
+      ]
+    },
+    {
+      "id": "zara",
+      "name": "Zara",
+      "url": "https://www.zara.com/es/",
+      "colors": [
+        "#000000"
+      ],
+      "status": "pendiente",
+      "source": {
+        "type": "agregador",
+        "refs": [
+          "https://mobbin.com/colors/brand/zara",
+          "https://brandyhq.com/brand-guidelines/zara/"
+        ],
+        "date": "2026-09-27"
+      },
+      "notes": "Marca monocroma (negro); el resto de la paleta es generado."
+    },
+    {
+      "id": "ikea",
+      "name": "IKEA",
+      "url": "https://www.ikea.com/es/es/",
+      "colors": [
+        "#0058A3",
+        "#FFDA1A"
+      ],
+      "status": "pendiente",
+      "source": {
+        "type": "agregador",
+        "refs": [
+          "https://mobbin.com/colors/brand/ikea",
+          "https://brandpalettes.com/ikea-logo-color-codes/"
+        ],
+        "date": "2026-09-27"
+      },
+      "alternatives": [
+        "#FBDA0C"
+      ],
+      "notes": "El amarillo tiene poco contraste con fondo blanco."
+    },
+    {
+      "id": "carrefour",
+      "name": "Carrefour",
+      "url": "https://www.carrefour.es",
+      "colors": [
+        "#004A97",
+        "#E3000F"
+      ],
+      "status": "pendiente",
+      "source": {
+        "type": "agregador",
+        "refs": [
+          "https://brandcenter.carrefour.com/public/the_colours.html",
+          "https://www.brandcolorcode.com/carrefour"
+        ],
+        "date": "2026-09-27"
+      },
+      "alternatives": [
+        "#DA2B24"
+      ],
+      "notes": "Existe brand center oficial con los colores; pendiente de consultarlo."
+    },
+    {
+      "id": "mercadona",
+      "name": "Mercadona",
+      "url": "https://www.mercadona.es",
+      "colors": [
+        "#00AA55",
+        "#FFA102"
+      ],
+      "status": "pendiente",
+      "source": {
+        "type": "agregador",
+        "refs": [
+          "https://www.brandcolorcode.com/mercadona",
+          "https://coloropedia.com/mercadona-colors-logo-codes/"
+        ],
+        "date": "2026-09-27"
+      },
+      "alternatives": [
+        "#F6CE4A",
+        "#00783C"
+      ],
+      "notes": "Fuentes contradictorias: revisar con prioridad."
+    },
+    {
+      "id": "vodafone",
+      "name": "Vodafone",
+      "url": "https://www.vodafone.es",
+      "colors": [
+        "#E60000"
+      ],
+      "status": "pendiente",
+      "source": {
+        "type": "agregador",
+        "refs": [
+          "https://www.brandcolorcode.com/vodafone",
+          "https://www.color-name.com/vodafone-red.color"
+        ],
+        "date": "2026-09-27"
+      },
+      "notes": "PMS 485."
+    },
+    {
+      "id": "movistar",
+      "name": "Movistar",
+      "url": "https://www.movistar.es",
+      "colors": [
+        "#009EF7"
+      ],
+      "status": "pendiente",
+      "source": {
+        "type": "agregador",
+        "refs": [
+          "https://colorcodeshub.com/brand/movistar",
+          "https://www.underconsideration.com/brandnew/archives/new_logo_and_identity_for_movistar_by_lambie_nairn.php"
+        ],
+        "date": "2026-09-27"
+      },
+      "notes": "Azul de la identidad de 2020."
+    },
+    {
+      "id": "el-corte-ingles",
+      "name": "El Corte Inglés",
+      "url": "https://www.elcorteingles.es",
+      "colors": [
+        "#1A8B49"
+      ],
+      "status": "pendiente",
+      "source": {
+        "type": "agregador",
+        "refs": [
+          "https://logotyp.us/logo/el-corte-ingles/",
+          "https://www.elcorteingles.es/informacioncorporativa/en/communication/corporate-identity/"
+        ],
+        "date": "2026-09-27"
+      },
+      "notes": "Verde corporativo (Pantone 348 C según su web)."
+    }
+  ]
+}
